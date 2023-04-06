@@ -1,3 +1,13 @@
+@font-face {
+    font-family: PoppinsRegular;
+    src: url("../assets/fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+    font-family: PoppinsBold;
+    src: url("../assets/fonts/Poppins-Bold.ttf");
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -13,14 +23,116 @@ body{
 }
 
 main{
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
     height: 70vh;
     width: 50vw;
     border-radius: 25px 25px 100px 25px;
 }
 
+header{
+    position: relative;
+    width: 100%;
+    height: 22vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-inputArea{
+    display: flex;
+    gap: 2em;
+    padding-right: 6em;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+}
+
+.input input{
+    outline: none;
+    width: 10em;
+    height: 4em;
+    border-radius: 10px;
+    border: 1px solid hsl(0, 1%, 74%);
+    padding-left: 10px;
+}
+
+input::placeholder{
+    font-family: PoppinsBold;
+    font-size: 1.3em;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+label{
+    color: #000;
+    text-transform: uppercase;
+    font-family: PoppinsBold;
+    font-size: .8em;
+    letter-spacing: 2px;
+}
+
+.arrowSVG{
+    background-color: hsl(259, 100%, 65%);
+    border-radius: 50%;
+    width: 4em;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3rem;
+    position: absolute;
+    right: 3em;
+    top: calc(22vh - 2em);
+    z-index: 10;
+    cursor: pointer;
+}
+
+.arrowSVG::before{
+    content: "";
+    position: absolute;
+    width: 37.5vw;
+    height: 2px;
+    background-color: hsl(0, 0%, 86%);
+    left: -37.5vw;
+    top: 50%;
+    z-index: 1;
+}
+
+
+.arrowSVG img{
+    width: 2em;
+    aspect-ratio: 1;
+}
+
 @media screen and (max-width: 415px){
     main{
         width: 90vw;
+    }
+
+    .header-inputArea{
+        gap: 1em;
+        padding-right: 0;
+    }
+
+    .input input{
+        width: 6em;
+    }
+
+    label{
+        font-size: .8em;
     }
 }
