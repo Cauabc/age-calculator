@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: hsl(0, 0%, 86%);
+}
+
+main{
+    background-color: #fff;
+    height: 70vh;
+    width: 50vw;
+    border-radius: 25px 25px 100px 25px;
+}
+
+@media screen and (max-width: 415px){
+    main{
+        width: 90vw;
+    }
+}
