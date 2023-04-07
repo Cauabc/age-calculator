@@ -14,15 +14,15 @@
             <div class="header-inputArea">
                 <div class="input day">
                     <label for="day">day</label>
-                    <input type="number" name="day" id="day" placeholder="DD">
+                    <input type="number" name="day" id="day" placeholder="DD" required maxlength="2" min="01" max="31">
                 </div>
                 <div class="input month">
                     <label for="month">month</label>
-                    <input type="number" name="month" id="month" placeholder="MM">
+                    <input type="number" name="month" id="month" placeholder="MM" required min="01" max="12" maxlength="2">
                 </div>
                 <div class="input year">
                     <label for="year">year</label>
-                    <input type="number" name="year" id="year" placeholder="YYYY">
+                    <input type="number" name="year" id="year" placeholder="YYYY" required min="0000" max="3000" maxlength="4">
                 </div>
             </div>
             <div class="arrowSVG">
@@ -30,7 +30,11 @@
             </div>
         </header>
         <div class="main-content">
-            
+            <div class="date">
+                <h1>- - <span>years</span></h1>
+                <h1>- - <span>months</span></h1>
+                <h1>- - <span>days</span></h1>
+            </div>
         </div>
     </main>
 </body>

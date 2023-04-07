@@ -8,6 +8,11 @@
     src: url("../assets/fonts/Poppins-Bold.ttf");
 }
 
+@font-face {
+    font-family: PoppinsExtraBoldItalic;
+    src: url("../assets/fonts/Poppins-ExtraBoldItalic.ttf");
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -43,7 +48,7 @@ header{
 .header-inputArea{
     display: flex;
     gap: 2em;
-    padding-right: 6em;
+    padding-right: 6vw;
 }
 
 .input{
@@ -51,13 +56,25 @@ header{
     flex-direction: column;
 }
 
-.input input{
+.input input,
+.input input:valid{
     outline: none;
-    width: 10em;
+    width: 10vw;
     height: 4em;
     border-radius: 10px;
     border: 1px solid hsl(0, 1%, 74%);
     padding-left: 10px;
+    color: #000;
+    font-weight: bold;
+    caret-color: hsl(259, 100%, 65%);
+}
+
+.input input:focus{
+    border: 1px solid hsl(259, 100%, 65%);
+}
+
+.input input:invalid{
+    border: 1px solid hsl(0, 100%, 67%);
 }
 
 input::placeholder{
@@ -93,7 +110,6 @@ label{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 3rem;
     position: absolute;
     right: 3em;
     top: calc(22vh - 2em);
@@ -101,8 +117,13 @@ label{
     cursor: pointer;
 }
 
+.arrowSVG:hover{
+    background-color: #000;
+}
+
 .arrowSVG::before{
     content: "";
+    pointer-events: none;
     position: absolute;
     width: 37.5vw;
     height: 2px;
@@ -112,10 +133,44 @@ label{
     z-index: 1;
 }
 
+.arrowSVG::after{
+    display: none;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    width: calc(45vw - 4vw);
+    height: 2px;
+    background-color: hsl(0, 0%, 86%);
+    left: 20vw;
+    top: 50%;
+    z-index: 1;
+}
+
 
 .arrowSVG img{
     width: 2em;
     aspect-ratio: 1;
+}
+
+.main-content{
+    padding-left: 4vw;
+    font-family: PoppinsExtraBoldItalic;
+}
+
+.main-content h1{
+    color: hsl(259, 100%, 65%);
+}
+
+.main-content span{
+    color: #000;
+}
+
+.date {
+    margin-top: 1em;
+}
+
+.date h1{
+    font-size: 5vw;
 }
 
 @media screen and (max-width: 415px){
@@ -134,5 +189,57 @@ label{
 
     label{
         font-size: .8em;
+    }
+
+    .arrowSVG{
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20vh;
+        z-index: 10;
+        width: 20vw;
+        position: absolute;
+    }
+
+    .arrowSVG::before{
+        position: absolute;
+        width: calc(45vw - 7.5vw);
+        height: 2px;
+        background-color: hsl(0, 0%, 86%);
+        left: -37.5vw;
+        top: 50%;
+        z-index: 0;
+    }
+
+    .arrowSVG::after{
+        display: block;
+    }
+
+    .main-content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20vw 0 0 0;
+        font-family: PoppinsExtraBoldItalic;
+    }
+    
+    .date h1{
+        font-size: 8vw;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 416px){
+    main{
+        width: 80vw;
+    }
+
+    .arrowSVG::before{
+        content: "";
+        position: absolute;
+        width: 62vw;
+        height: 2px;
+        background-color: hsl(0, 0%, 86%);
+        left: -62vw;
+        top: 50%;
+        z-index: 1;
     }
 }
