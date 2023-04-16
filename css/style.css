@@ -184,7 +184,8 @@ label{
         padding-right: 0;
     }
 
-    .input input{
+    .input input,
+    .input input:valid{
         width: 6em;
     }
 
@@ -243,4 +244,5 @@ label{
         top: 50%;
         z-index: 1;
     }
+
 }
