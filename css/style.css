@@ -158,11 +158,12 @@ label{
 }
 
 .main-content h1{
-    color: hsl(259, 100%, 65%);
+    color: #000;
 }
 
 .main-content span{
-    color: #000;
+    color: hsl(259, 100%, 65%);
+
 }
 
 .date {
