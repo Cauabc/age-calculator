@@ -14,8 +14,20 @@ const buttonSubmit = document.querySelector(".arrowSVG")
 
 
 buttonSubmit.addEventListener("click", () => {
-    yearText.innerHTML = year - inputYear.value
-    monthText.innerHTML = month + 1 - inputMonth.value
-    dayText.innerHTML = day - inputDay.value
+    let birthDate = new Date(inputMonth.value+"-"+inputDay.value+"-"+inputYear.value);  
+
+    let differenceInMilliseconds = actualDate.getTime() - birthDate.getTime();
+            
+    let millisecondsPerYear = 1000 * 60 * 60 * 24 * 365.25;
+
+    yearText.textContent =  Math.floor(differenceInMilliseconds / millisecondsPerYear);
+
+    let millisecondsPerMonth = 1000 * 60 * 60 * 24 * 30.44;
+
+    monthText.textContent = Math.floor((differenceInMilliseconds % millisecondsPerYear) / millisecondsPerMonth);
+
+    let millisecondsPerDay = 1000 * 60 * 60 * 24; 
+
+    dayText.textContent = Math.floor((differenceInMilliseconds % millisecondsPerMonth) / millisecondsPerDay);
 
 })
